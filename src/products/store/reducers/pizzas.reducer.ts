@@ -3,14 +3,14 @@ import * as fromPizzas from "../actions/pizzas.action";
 
 // state
 export interface PizzaState {
-  data: Pizza[];
+  entities: { [id: number]: Pizza };
   loading: boolean;
   loaded: boolean;
 }
 
 // initial state
 const initialState: PizzaState = {
-  data: [],
+  entities: {},
   loaded: false,
   loading: false,
 };
@@ -29,12 +29,18 @@ export function reducer(
     }
 
     case fromPizzas.LOAD_PIZZAS_SUCCESS: {
-      const data = action.payload;
+      const pizzas = action.payload;
+      const entities = pizzas.reduce(
+        (entities: { [id: number]: Pizza }, pizza: Pizza) => {
+          return { ...entities, [pizza.id]: pizza };
+        },
+        { ...state.entities }
+      );
       return {
         ...state,
         loading: false,
         loaded: true,
-        data,
+        entities,
       };
     }
 
