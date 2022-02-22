@@ -7,6 +7,6 @@ export interface ProductState {
 }
 
 // reducers
-export const reduces: ActionReducerMap<ProductState> = {
+export const reducers: ActionReducerMap<ProductState> = {
   pizzas: fromPizzas.reducer,
 };
