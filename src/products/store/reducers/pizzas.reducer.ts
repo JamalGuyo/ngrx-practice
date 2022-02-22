@@ -1,5 +1,5 @@
 import { Pizza } from "@models/pizza.model";
-import * as fromPizzas from "@store/actions/pizzas.action";
+import * as fromPizzas from "../actions/pizzas.action";
 
 // state
 export interface PizzaState {
@@ -10,7 +10,38 @@ export interface PizzaState {
 
 // initial state
 const initialState: PizzaState = {
-  data: [],
+  data: [
+    {
+      name: "Blazin' Inferno",
+      toppings: [
+        {
+          id: 10,
+          name: "pepperoni",
+        },
+        {
+          id: 9,
+          name: "pepper",
+        },
+        {
+          id: 3,
+          name: "basil",
+        },
+        {
+          id: 4,
+          name: "chili",
+        },
+        {
+          id: 7,
+          name: "olive",
+        },
+        {
+          id: 2,
+          name: "bacon",
+        },
+      ],
+      id: 1,
+    },
+  ],
   loaded: false,
   loading: false,
 };
