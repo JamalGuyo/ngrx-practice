@@ -19,6 +19,7 @@
     "skipLibCheck": true,
     "target": "es5",
     "paths": {
+      "@app/*": ["src/app/*"],
       "@models/*": ["src/products/models/*"],
       "@store/*": ["src/products/store/*"],
       "@services/*": ["src/products/services/*"]
