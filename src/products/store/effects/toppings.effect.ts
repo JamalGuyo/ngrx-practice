@@ -1,17 +1,17 @@
 import { Injectable } from "@angular/core";
 import { Actions, Effect } from "@ngrx/effects";
-import { ToppingsService } from "@services/toppings.service";
+import * as fromServices from "../../services";
 
 import * as toppingsActions from "../actions/toppings.action";
 
 import { catchError, map, switchMap } from "rxjs/operators";
-import { of } from "core-js/core/array";
+import { of } from "rxjs/observable/of";
 
 @Injectable()
 export class ToppingsEffect {
   constructor(
     private Actions$: Actions,
-    private toppingsService: ToppingsService
+    private toppingsService: fromServices.ToppingsService
   ) {}
 
   @Effect()
