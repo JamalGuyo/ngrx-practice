@@ -52,6 +52,7 @@ export function reducer(
       };
     }
 
+    case fromPizzas.UPDATE_PIZZA_SUCCESS:
     case fromPizzas.CREATE_PIZZA_SUCCESS: {
       const { payload: pizza } = action;
       const entities = {
