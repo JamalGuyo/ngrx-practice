@@ -51,6 +51,18 @@ export function reducer(
         loaded: false,
       };
     }
+
+    case fromPizzas.CREATE_PIZZA_SUCCESS: {
+      const { payload: pizza } = action;
+      const entities = {
+        ...state.entities,
+        [pizza.id]: pizza,
+      };
+      return {
+        ...state,
+        entities,
+      };
+    }
   }
 
   return state;
